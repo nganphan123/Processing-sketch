@@ -11,6 +11,7 @@ public Node(String v, float xx, float yy){
   y=yy;
 }
 void display(){
+  textAlign(CENTER,CENTER);
   fill(fill);
   stroke(255);
   ellipse(x,y,50,50);
