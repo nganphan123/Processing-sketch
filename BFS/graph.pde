@@ -7,7 +7,7 @@
 class graph{
   ArrayList<Node> nodes = new ArrayList();
   //ArrayList<Node>[] edges = new ArrayList[10];
-  Map<Node,List<edge>> edges = new HashMap<>();
+  edge[] edges = new edge[10];
   
   Node a = new Node("A",width/5,height/2.5);
   Node b = new Node("B",width/3,height/4);
@@ -31,16 +31,16 @@ class graph{
     nodes.add(s);
     
     //add edges
-    //edges[0] = new ArrayList(Arrays.asList(a,b));
-    //edges[1] = new ArrayList(Arrays.asList(a,s));
-    //edges[2] = new ArrayList(Arrays.asList(s,c));
-    //edges[3] = new ArrayList(Arrays.asList(s,g));
-    //edges[4] = new ArrayList(Arrays.asList(c,d));
-    //edges[5] = new ArrayList(Arrays.asList(c,e));
-    //edges[6] = new ArrayList(Arrays.asList(c,f));
-    //edges[7] = new ArrayList(Arrays.asList(g,f));
-    //edges[8] = new ArrayList(Arrays.asList(g,h));
-    //edges[9] = new ArrayList(Arrays.asList(e,h));
+    edges[0] = new edge(a,b);
+    edges[1] = new edge(a,s);
+    edges[2] = new edge(s,c);
+    edges[3] = new edge(s,g);
+    edges[4] = new edge(c,d);
+    edges[5] = new edge(c,e);
+    edges[6] = new edge(c,f);
+    edges[7] = new edge(g,f);
+    edges[8] = new edge(g,h);
+    edges[9] = new edge(e,h);
     
     //edges.put(a,Arrays.asList(b,s));
     //edges.put(s,Arrays.asList(c,g,a));

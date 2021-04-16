@@ -3,6 +3,7 @@ import java.util.*;
 Queue<Node> queue = new LinkedList();
 graph g;
 Node currentNode;
+ArrayList<edge> currentEdges = new ArrayList();  
 
 void setup(){
 background(0);
@@ -12,36 +13,59 @@ frameRate(0.9);
 textAlign(CENTER,CENTER);
 visit(g.nodes.get(0));
 currentNode = g.nodes.get(0);
+strokeWeight(2);
 }
 
 void draw(){
-for(int i = 0; i < g.edges.length; i++){
-  float x1 = g.edges[i].get(0).x;
-  float y1 = g.edges[i].get(0).y;
-  float x2 = g.edges[i].get(1).x;
-  float y2 = g.edges[i].get(1).y;
-  stroke(255,0,0);
-  line(x1,y1,x2,y2);
-  strokeWeight(2);
+if(currentEdges.size()!=0){
+edge currentedge = currentEdges.remove(0); 
+currentedge.fill = color(255,0,0);
+if(currentNode.equals(currentedge.nodes.get(0)))
+  visit(currentedge.nodes.get(1));
+else visit(currentedge.nodes.get(0));
+
+currentNode.fill = color(252,105,139);
 }
+else traverse();
+  
+for(edge e: g.edges){
+  e.display();
+}
+
 for(Node n : g.nodes)
   n.display();
 
+}
+
+void traverse(){
 if(queue.size()==0){
   return;
 }
 else{
 currentNode.fill = color(255,201,134);
 currentNode = queue.poll();
-currentNode.fill=0;
 println(currentNode.value);
-for(ArrayList<Node> edge : g.edges)
-    if (edge.contains(currentNode)){
-      int ind = edge.indexOf(currentNode);
-      visit(edge.get(1-ind));
-      //delay(150);
-    }
-}}
+for(edge e: g.edges){
+  //if(currentNode.equals(e.start) || currentNode.equals(e.end)){
+    if(e.nodes.contains(currentNode)){
+    currentEdges.add(e);
+    //e.fill= color(255,0,0);
+    //if(currentNode.equals(e.start))
+    //  visit(e.end);
+    //else visit(e.start);
+    //currentEdges.add(e);
+  }
+   //delay(200);
+   e.fill= color(255);
+}
+//for(ArrayList<Node> edge : g.edges)
+//    if (edge.contains(currentNode)){
+//      int ind = edge.indexOf(currentNode);
+//      visit(edge.get(1-ind));
+//      //delay(150);
+//    }
+}
+}
 
 void visit(Node n){
     if(n.visited)
