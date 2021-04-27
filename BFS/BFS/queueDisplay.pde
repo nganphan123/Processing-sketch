@@ -1,7 +1,5 @@
-
 void queueDisplay(){
-  textSize(20);
-  textAlign(CORNER);
+  //display all nodes in the queue
   stroke(255);
   fill(255);
   text("Queue",6*width/20,18*height/20);

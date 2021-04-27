@@ -1,13 +1,6 @@
-
-
-//Map<String,Boolean> nodes = new HashMap(); //nodes
-//ArrayList<String>[] edges = new ArrayList[10];
-//Queue<String> queue = new LinkedList();
-
 class graph{
-  ArrayList<Node> nodes = new ArrayList();
-  //ArrayList<Node>[] edges = new ArrayList[10];
-  edge[] edges = new edge[10];
+  ArrayList<Node> nodes = new ArrayList(); //contains nodes
+  edge[] edges = new edge[10]; //contains edges
   
   Node a = new Node("A",width/5,height/2.5);
   Node b = new Node("B",width/3,height/4);
@@ -20,6 +13,7 @@ class graph{
   Node s = new Node("S",width/3,2.3*height/4);
   
   public graph(){
+    //add nodes
     nodes.add(a);
     nodes.add(b);
     nodes.add(c);
@@ -41,14 +35,4 @@ class graph{
     edges[7] = new edge(g,f);
     edges[8] = new edge(g,h);
     edges[9] = new edge(e,h);
-    
-    //edges.put(a,Arrays.asList(b,s));
-    //edges.put(s,Arrays.asList(c,g,a));
-    //edges.put(b,Arrays.asList(a));
-    //edges.put(g,Arrays.asList(f,s,h));
-    //edges.put(c,Arrays.asList(f,d,e,s));
-    //edges.put(d,Arrays.asList(c));
-    //edges.put(f,Arrays.asList(c,g));
-    //edges.put(e,Arrays.asList(c,h));
-    //edges.put(h,Arrays.asList(e,g));
 }}

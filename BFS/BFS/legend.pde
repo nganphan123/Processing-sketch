@@ -1,5 +1,6 @@
 void legend(){
-  textSize(15);
+textAlign(CORNER);
+textSize(15);
 //current node
 fill(252,105,139);
 ellipse(width/20,18*height/20,10,10);
